@@ -17,7 +17,7 @@ class ReorderTableViewController: UITableViewController {
         "H is for her heart of purest gold;",
         "E is for her eyes, with love-light shining,",
         "R means right, and right she’ll always be,",
-        "Put them all together, they spell ______,",   //6
+        "Put them all together, they spell ______,",   //6 underscores
         "A word that means the world to me.",
         "—Howard Johnson"
     ];
