@@ -17,9 +17,9 @@ class ReorderTableViewController: UITableViewController {
         "H is for her heart of purest gold;",
         "E is for her eyes, with love-light shining,",
         "R means right, and right she’ll always be,",
-        "Put them all together, they spell ______,",   //6 underscores
+        "Put them all together, they spell ______,", //6 underscores
         "A word that means the world to me.",
-        "—Howard Johnson"
+        "—Howard Johnson"                            //one em dash
     ];
     
     override func viewDidLoad() {
@@ -83,21 +83,16 @@ class ReorderTableViewController: UITableViewController {
         lines.remove(at: fromIndexPath.row);
         lines.insert(line, at: to.row);
         
-        if String(lines.map {$0.first!}) == "MOTHERPA—" {
+        if String(lines.map {$0.first!}) == "MOTHERPA—" {   //first character on each line
             //The poem has been unscrambled.   Change the ______ to MOTHER.
             guard let i: Int = lines.firstIndex(where: {$0.contains("______")}) else {
                 fatalError("could not find \"______\"");
             }
-            
             lines[i] = lines[i].replacingOccurrences(of: "______", with: "MOTHER");
-            let indexPath: IndexPath = IndexPath(row: i, section: 0);
-            
-            tableView.reloadRows(at: [indexPath], with: .none);
-            tableView.setEditing(false, animated: true);
-            
-            navigationItem.rightBarButtonItem = nil;
             navigationItem.title = "Mother ❤️";
         }
+        
+        tableView.reloadData();
     }
     
     /*
